@@ -58,10 +58,10 @@
         <div class="innerBlock">
             <div id="square">
                 <h1 class="text">Our Next Meeting Is On:</h1>
-                <p>Date: October 12th, 2016</p>
-                <p>Time: 3:00PM (CT)</p>
-                <p>Location: TBD</p>
-                <p>Led By: TBD</p>
+                <p id="date">Date: October 13th, 2016</p>
+                <p id="time">Time: 10:00AM (CT)</p>
+                <p id="location">Location: 221 W. Sixth Street </p>
+                
             </div>
         </div>
     </section>
@@ -70,7 +70,7 @@
 
         <div class="innerBlock"></div>
         <div class="countdownDisplay">
-            <p class="countdownText">Deadline For Work Plan</p>
+            <p class="countdownText">Deadline For</p>
             <div id="display"></div>
         </div>
 
@@ -362,8 +362,7 @@
 
                     <div class="row">
                     
-                    <select class="custom-select">
-					  <option selected>Open this select menu</option>
+                    <select class="custom-select" id="select">
 					  <option value="1">Meeting</option>
 					  <option value="2">Deadline</option>
 					</select>
@@ -373,21 +372,21 @@
 					<br>
 
 	                    <div class="form-group row">
-							  <label for="example-text-input" class="col-xs-2 col-form-label text">Subject</label>
+							  <label for="example-text-input" class="col-xs-2 col-form-label text2" id="selectLabel">Location</label>
 							  <div class="col-xs-10">
-							    <input class="form-control" type="text" value="Practicum Work Plan" id="example-text-input">
+							    <input class="form-control" type="text" value=""  placeholder="Type Here" id="example-text-input">
 							  </div>
 						</div>
 
 						<div class="form-group row">
-							  <label for="example-date-input" class="col-xs-2 col-form-label text">Date</label>
+							  <label for="example-date-input" class="col-xs-2 col-form-label text2">Date</label>
 							  <div class="col-xs-10">
-							    <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+							    <input class="form-control" type="date" value="2016-10-12" id="example-date-input">
 							  </div>
 						</div>
 
 						<div class="form-group row">
-							  <label for="example-time-input" class="col-xs-2 col-form-label text">Time</label>
+							  <label for="example-time-input" class="col-xs-2 col-form-label text2">Time</label>
 							  <div class="col-xs-10">
 							    <input class="form-control" type="time" value="13:45:00" id="example-time-input">
 							  </div>
@@ -395,7 +394,7 @@
 
                     </div>
                     
-            		 <button class="btn text">Submit</button>
+            		 <button class="btn text" onclick="submitInfo()">Submit</button>
             	</div>
            
             <div class="col-md-4">

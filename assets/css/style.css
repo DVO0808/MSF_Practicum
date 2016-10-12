@@ -314,6 +314,15 @@ input[type=file] {
 .text{
 
    -webkit-text-fill-color: #FFF !important;
+   
+
+}
+
+
+.text2{
+
+   -webkit-text-fill-color: #FFF !important;
+   font-size: 15px;
 
 }
 

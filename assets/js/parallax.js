@@ -34,7 +34,7 @@ $(window).bind('scroll',function(e){
     parallaxScroll();
 });
 
- var myCountdownInterval = setInterval(myCountdown, 1000);
+
   
 });
 
@@ -46,8 +46,7 @@ function parallaxScroll(){
     
 }
 
-
-
+/*
 function myCountdown() {
 
             
@@ -94,6 +93,6 @@ function myCountdown() {
 
 }
 
-
+*/
 
 
