@@ -45,7 +45,7 @@
             </div>
 
             <div class="col-xs-4 col-sm-4 col-md-1 col-lg-1 button1">
-                <button  onclick="location.href = 'index.html'" type="button" class="btn" id="signOutBtn">
+                <button  type="button" class="btn" id="signOutBtn">
       						<span class="glyphicon glyphicon-home"></span> Log Out
       					</button>
             </div>
@@ -56,7 +56,12 @@
     <div id="bg" data-stellar-ratio="2"></div>
     <section class="blockItem first">
         <div class="innerBlock">
+
+
+        <div id="errMsg">
+        </div>
             <div id="square">
+
                 <h1 class="text">Our Next Meeting Is On:</h1>
                 <p id="date">Date: October 13th, 2016</p>
                 <p id="time">Time: 10:00AM (CT)</p>
@@ -248,7 +253,7 @@
                                     <textarea id="userText2" placeholder="Comments..."></textarea>
                                     <br>
 
-                                    <button class="btn" id="btn2" onclick="submit2()">Submit</button>
+                                    <button class="btn" id="btn2">Submit</button>
                                     <br>
                                     <br>
 
@@ -315,7 +320,7 @@
                                     <textarea id="userText3" placeholder="Comments..."></textarea>
                                     <br>
 
-                                    <button class="btn" id="btn3" onclick="submit3()">Submit</button>
+                                    <button class="btn" id="btn3">Submit</button>
                                     <br>
                                     <br>
 
@@ -394,7 +399,7 @@
 
                     </div>
                     
-            		 <button class="btn text" onclick="submitInfo()">Submit</button>
+            		 <button class="btn text" id="mtngDeadlineBtn">Submit</button>
             	</div>
            
             <div class="col-md-4">
@@ -414,7 +419,7 @@
                                     <textarea id="userText4" placeholder="Comments..."></textarea>
                                     <br>
 
-                                    <button class="btn" id="btn4" onclick="submit4()">Submit</button>
+                                    <button class="btn" id="btn4">Submit</button>
                                     <br>
                                     <br>
 
@@ -428,19 +433,13 @@
 
     </section>
 
-    <script>
-        function myFunction() {
-            var x = document.getElementById("myFile");
-            x.disabled = true;
-        }
-    </script>
 
-    <script type="text/javascript" src="assets/js/parallax.js"></script>
-
+    <script type="text/javascript" src="assets/js/backend.js"></script>
+    <script type="text/javascript" src="assets/js/auth.js"></script>
     <script type="text/javascript" src="assets/js/toDo.js"></script>
 
     <script type="text/javascript" src="assets/js/comments.js"></script>
-
+   <script type="text/javascript" src="assets/js/parallax.js"></script>
 
 
 </body>

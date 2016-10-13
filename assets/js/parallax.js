@@ -1,3 +1,80 @@
+
+
+function updateUIGetMeetingValue(obj) {
+         $("#date").html("Date: " + obj.date);
+        $("#location").html("Location: " + obj.location);
+        $("#time").html("Time: " + obj.time);
+
+}
+
+function updateUIGetDeadlineValue(deadline) {
+
+  $(".countdownText").html("Deadline For " + deadline.subject);
+  var myCountdownInterval = setInterval(myCountdown, 1000);
+  
+}
+
+
+function updateUIGetCommentValue(obj, index) {
+
+    var p = $("<p>").html(obj.date);
+    var h2 = $("<h2>").html(obj.name);
+    var h3 = $("<h3>").html(obj.userText);
+
+        $("#myDiv").append(p);
+        $("#myDiv").append(h2);
+       $("#myDiv").append(h3);
+ 
+
+
+
+}
+
+function updateUIGetToDoListChildAdded() {
+  
+}
+
+
+function updateUIGetToDoListChildRemoved() {
+  
+}
+
+function updateUIGetToDoListChildAddedCompleted() {
+  
+}
+
+
+function updateUIGetToDoListChildRemovedCompleted() {
+  
+}
+
+
+
+
+function updateUILogOutSucess() {
+  location.href = "index.html";
+}
+
+function displayErr(err) {
+    var p1 = $('<p>').html(err.code);
+    var p2 = $('<p>').html(err.message);
+    $('#errMsg').append(p1);
+    $('#errMsg').append(p2);
+}
+
+
+function updateUIAuthErr(err) {
+    displayErr(err);
+}
+
+function addListener(sel, eve, fn) {
+    $(document).on(eve, sel, fn);
+}
+
+function clickSignOutBtn() {
+ signOut();
+}
+
 var imgs = [
   "http://www.rtjsjg.com/data/out/258/7028692-faded-background.jpg",
   "http://unsplash.s3.amazonaws.com/batch%206/Bird-Profile-Wellington-New-Zealand.jpg",
@@ -7,11 +84,17 @@ var imgs = [
 
 $(document).ready(function(){
   
-  //console.log($.stellar());
-  //$('#bg').stellar();
+  initializeFireBase ();
+  reLogin();
+  addListener('#signOutBtn', 'click', clickSignOutBtn);
+  addListener('#btn', 'click', submit);
   
-  //$.stellar();
-  
+   //addListener('#btn2', 'click', submit2);
+   //addListener('#btn3', 'click', submit3);
+   //addListener('#btn4', 'click', submit4);
+   addListener('#mtngDeadlineBtn', 'click', submitInfo);
+
+
   var img;
   
   for(var i=0; i<imgs.length; i++){
@@ -46,53 +129,5 @@ function parallaxScroll(){
     
 }
 
-/*
-function myCountdown() {
-
-            
-              var travelDate = "2016-11-12";
-              var formatTravelDate = moment(travelDate, 'YYYY-MM-DD');
-
-              //console.log("Travel Date Is: " + travelDate);
-              //console.log("Formatted Travel Date Is: " + formatTravelDate);
-              // console.log("Type: " + typeof(formatTravelDate));
-
-              var now = moment();
-
-              var diff = moment.duration(moment(formatTravelDate).diff(moment(now)));
-
-              //console.log(diff);
-
-              var days = parseInt(diff.asDays());
-
-              var hours = parseInt(diff.asHours());
-
-              var hours = hours - days * 24;
-
-              var minutes = parseInt(diff.asMinutes());
-
-              var minutes = minutes - (days * 24 * 60 + hours * 60);
-
-              var seconds = parseInt(diff.asSeconds());
-
-              var seconds = seconds - (days * 24 * 60 * 60 + hours * 60 * 60 + minutes * 60);
-
-
-              //var diffInTimeFromNow = userName + "&#39;s " + travelCountry + " Travel Begins In: " + days + " " + "Days" + " : " + hours + " " + "Hours " + ": " + minutes + " " + "Minutes " + ": " + seconds + " " + "Seconds";
-
-              //console.log(diffInTimeFromNow);
-              //var diffInTimeFromNow = $('<div id="text13">' + userName + "&#39;s " + travelCountry + " Travel Begins In: " +
-               //'</div>');
-              //var diffInTimeFromNow2 = $('<span class="countDown">' + days + "Days" + '</span>'+'<span>'+ ":" + '</span>' + '<span class="countDown">' + hours +  "Hrs" + '</span>'+'<span>'+ ":" + '</span>' +  '<span class="countDown">' + minutes + "Mins" + '</span>'+'<span>'+ ":" + '</span>' + '<span class="countDown">' + seconds + "Secs" + '</span>');
-
-              var diffInTimeFromNow = days + " " + "Days" + " : " + hours + " " + "Hours " + ": " + minutes + " " + "Minutes " + ": " + seconds + " " + "Seconds";
-
-             //var diffInTimeFromNowFinal =  $(diffInTimeFromNow).append(diffInTimeFromNow2);
-
-              $("#display").html(diffInTimeFromNow);
-
-}
-
-*/
 
 
