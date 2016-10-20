@@ -16,16 +16,19 @@ function updateUIGetDeadlineValue(deadline) {
 
 
 function updateUIGetCommentValue(obj, index) {
-
+    $("#myDiv").empty();
+ 
     var p = $("<p>").html(obj.date);
     var h2 = $("<h2>").html(obj.name);
     var h3 = $("<h3>").html(obj.userText);
 
-        $("#myDiv").append(p);
-        $("#myDiv").append(h2);
-       $("#myDiv").append(h3);
- 
+    $("#myDiv").append(p);
+    $("#myDiv").append(h2);
+    $("#myDiv").append(h3);
 
+    $("#name").empty();
+    $("#userText").empty();
+ 
 
 
 }
