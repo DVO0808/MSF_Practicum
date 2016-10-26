@@ -32,8 +32,15 @@ function clickSignInBtn() {
     return false;
 }
 
+   function enterSignIn(event) {
+    if (event.which === 13) {
+        
+        clickSignInBtn();
+    }   
+}
+
 $(document).ready(function() {
 	initializeFireBase ();
 	addListener('#signInBtn', 'click', clickSignInBtn);
-
+    addListener('#passwordInput1', 'keyup', enterSignIn);
 })

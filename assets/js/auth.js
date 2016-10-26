@@ -76,8 +76,12 @@ function reLogin () {
           console.log('user.uid: ' + user.uid);
           //                   currentUserUID = user.uid;
           addFBListenter('comment');
+          addFBListenter('comment2');
+          addFBListenter('comment3');
+          addFBListenter('comment4');
           addFBListenter('meeting');
           addFBListenter('deadline');
+          addFBListenter('toDoList');
           //addTravelPlanFBListenters('flight');
           //addTravelPlanFBListenters('lodging');
           //addTravelPlanFBListenters('itinerary');

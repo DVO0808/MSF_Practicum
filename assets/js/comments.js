@@ -1,8 +1,3 @@
-
-
-
-
-
 function submit() {
 
     var name = $("#name").val().trim();
@@ -18,10 +13,18 @@ function submit() {
       userText: userText
     });
 
-
-
 }
 
+
+
+
+function clear(){
+ 
+
+    $("#name").val(placeholder)
+    $("#userText").val().empty();
+
+}
 
 function submit2() {
 
@@ -29,26 +32,16 @@ function submit2() {
     var userText = $("#userText2").val().trim();
    
     d = moment().format('MMM Do YYYY, h:mm a');
+    console.log(name);
+    console.log(userText);
     console.log(d);
 
-    setComment({
+    setComment2({
       date: d,
       name: name,
       userText: userText
     });
-
-  /* var p = $("<p>").html(d);
-    var h2 = $("<h2>").html(name);
-    var h3 = $("<h3>").html(userText);
-
-
-    $("#myDiv2").append(p);
-    $("#myDiv2").append(h2);
-    $("#myDiv2").append(h3);
-
-    $("#name2").val("");
-    $("#userText2").val("")
-*/
+ 
 }
 
 
@@ -62,24 +55,13 @@ function submit3() {
     console.log(d);
 
 
-    setComment({
+    setComment3({
       date: d,
       name: name,
       userText: userText
     });
 
-  /*  var p = $("<p>").html(d);
-    var h2 = $("<h2>").html(name);
-    var h3 = $("<h3>").html(userText);
-
-
-    $("#myDiv3").append(p);
-    $("#myDiv3").append(h2);
-    $("#myDiv3").append(h3);
-
-    $("#name3").val("");
-    $("#userText3").val("")
-*/
+  
 }
 
 
@@ -90,26 +72,11 @@ function submit4() {
     d = moment().format('MMM Do YYYY, h:mm a');
     console.log(d);
 
-    setComment({
+    setComment4({
       date: d,
       name: name,
       userText: userText
     });
-
-/*
-    var p = $("<p>").html(d);
-    var h2 = $("<h2>").html(name);
-    var h3 = $("<h3>").html(userText);
-
-
-    $("#myDiv4").append(p);
-    $("#myDiv4").append(h2);
-    $("#myDiv4").append(h3);
-
-    $("#name4").val("");
-    $("#userText4").val("")
-
-    */
 
 }
 

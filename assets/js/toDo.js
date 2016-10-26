@@ -1,7 +1,7 @@
-$("#sortable").sortable();
-$("#sortable").disableSelection();
+//$("#sortable").sortable();
+//$("#sortable").disableSelection();
 
-countTodos();
+//countTodos();
 
 // all done btn
 $("#checkAll").click(function(){
@@ -14,12 +14,18 @@ $('.add-todo').on('keypress',function (e) {
       if (e.which == 13) {
            if($(this).val() != ''){
            var todo = $(this).val();
-            createTodo(todo); 
-            countTodos();
+//HERE LOLA
+          addToDoList(todo);
+          $('.add-todo').val('');
+          setFBList();
+            //createTodo(todo); 
+            //countTodos();
            }else{
                // some validation
            }
       }
+      
+      
 });
 // mark task as done
 $('.todolist').on('change','#sortable li input[type="checkbox"]',function(){
@@ -40,13 +46,46 @@ $('.todolist').on('click','.remove-item',function(){
 function countTodos(){
     var count = $("#sortable li").length;
     $('.count-todos').html(count);
+};
+
+//HERE LOLA
+function updateUIGetToDoList(list){
+  console.log("Lola something is working");
+    $("#sortable").empty();
+    list.forEach(function (item) {
+        addTask(item);
+    });
+    if (list.length == 0) {
+        $(".count-todos").html('');
+    } else {
+        $(".count-todos").html(list.length);   
+    }
+};
+
+//HERE LOLA 
+
+
+ 
+
+function addTask(item) {
+      var markup = '<li class="ui-state-default"><div class="checkbox"><label><input type="checkbox" value="" />'+ item +'</label></div></li>';
+    $('#sortable').append(markup)
 }
+
+
 
 //create task
 function createTodo(text){
     var markup = '<li class="ui-state-default"><div class="checkbox"><label><input type="checkbox" value="" />'+ text +'</label></div></li>';
-    $('#sortable').append(markup);
+    //$('#sortable').append(markup);
+
+    //HERE LOLA
+
+    addToDoList(markup);
+
     $('.add-todo').val('');
+
+
 }
 
 //mark task as done

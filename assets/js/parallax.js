@@ -26,12 +26,49 @@ function updateUIGetCommentValue(obj, index) {
     $("#myDiv").append(h2);
     $("#myDiv").append(h3);
 
-    $("#name").empty();
-    $("#userText").empty();
- 
-
-
 }
+
+
+function updateUIGetCommentValue2(obj, index) {
+    $("#myDiv2").empty();
+ 
+    var p = $("<p>").html(obj.date);
+    var h2 = $("<h2>").html(obj.name);
+    var h3 = $("<h3>").html(obj.userText);
+
+    $("#myDiv2").append(p);
+    $("#myDiv2").append(h2);
+    $("#myDiv2").append(h3);
+}
+
+
+function updateUIGetCommentValue3(obj, index) {
+    $("#myDiv3").empty();
+ 
+    var p = $("<p>").html(obj.date);
+    var h2 = $("<h2>").html(obj.name);
+    var h3 = $("<h3>").html(obj.userText);
+
+    $("#myDiv3").append(p);
+    $("#myDiv3").append(h2);
+    $("#myDiv3").append(h3);
+}
+
+
+function updateUIGetCommentValue4(obj, index) {
+    $("#myDiv4").empty();
+ 
+    var p = $("<p>").html(obj.date);
+    var h2 = $("<h2>").html(obj.name);
+    var h3 = $("<h3>").html(obj.userText);
+
+    $("#myDiv4").append(p);
+    $("#myDiv4").append(h2);
+    $("#myDiv4").append(h3);
+}
+
+
+
 
 function updateUIGetToDoListChildAdded() {
   
@@ -91,11 +128,10 @@ $(document).ready(function(){
   reLogin();
   addListener('#signOutBtn', 'click', clickSignOutBtn);
   addListener('#btn', 'click', submit);
-  
-   //addListener('#btn2', 'click', submit2);
-   //addListener('#btn3', 'click', submit3);
-   //addListener('#btn4', 'click', submit4);
-   addListener('#mtngDeadlineBtn', 'click', submitInfo);
+  addListener('#btn2', 'click', submit2);
+  addListener('#btn3', 'click', submit3);
+  addListener('#btn4', 'click', submit4);
+  addListener('#mtngDeadlineBtn', 'click', submitInfo);
 
 
   var img;

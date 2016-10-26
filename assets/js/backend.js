@@ -11,6 +11,8 @@ function User(name, city, country, date) {
 }
 */
 
+var toDoList = {list: []};
+
 var deadLine = null;
 // Initialize Firebase
 
@@ -37,23 +39,29 @@ function getRef(endpoint) {
 	return ref;
 }
 function addFBListenter(endpoint) {
-	var ref = getRef(endpoint);
-	if (endpoint == 'meeting') {
-		ref.on('value', getMeetingValue);
-	} else if (endpoint == 'deadline') {
-		ref.on('value', getDeadlineValue);
-	} else if (endpoint == 'comment') {
-		ref.on('value', getCommentValue);
-	} else if (endpoint == 'toDoList') {
-		ref.on('child_added', getToDoListChildAdded);
-		ref.on('child_removed', getToDoListChildRemoved);
-	} else if (endpoint == 'toDoListCompleted') {
-		ref.on('child_added', getToDoListChildAddedCompleted);
-		ref.on('child_removed', getToDoListChildRemovedCompleted);
-	} else {
-		// something very wrong
-		console.error('addFBListenter: Incorrect endpoint: ' + endpoint);
-	}
+    var ref = getRef(endpoint);
+    if (endpoint == 'meeting') {
+        ref.on('value', getMeetingValue);
+    } else if (endpoint == 'deadline') {
+        ref.on('value', getDeadlineValue);
+    } else if (endpoint == 'comment') {
+        ref.on('value', getCommentValue);
+    } else if (endpoint == 'comment2') {
+        ref.on('value', getCommentValue2);
+    } else if (endpoint == 'comment3') {
+        ref.on('value', getCommentValue3);
+    } else if (endpoint == 'comment4') {
+        ref.on('value', getCommentValue4);
+    } else if (endpoint == 'toDoList') {
+        ref.on('value', getToDoListChildAdded);
+        //ref.on('child_removed', getToDoListChildRemoved);
+    } else if (endpoint == 'toDoListCompleted') {
+        ref.on('child_added', getToDoListChildAddedCompleted);
+        ref.on('child_removed', getToDoListChildRemovedCompleted);
+    } else {
+        // something very wrong
+        console.error('addFBListenter: Incorrect endpoint: ' + endpoint);
+    }
 
 }
 /*
@@ -123,14 +131,64 @@ function getCommentValue(snapshot, index) {
 
 
 
+function getCommentValue2(snapshot, index) {
+	console.log('getCommentValue2');
+	// when the user sign up first time, no snapshot.val()
+	// is defined. Do nothing.
+	if (snapshot.val() == null) return;
+
+	//console.log('snapshot.key: ' + snapshot.key);
+	console.log(snapshot.val());
+	//setValiseUser(snapshot.val());
+	// Update UI
+	updateUIGetCommentValue2(snapshot.val(), index);
+ 
+}
+
+function getCommentValue3(snapshot, index) {
+	console.log('getCommentValue3');
+	// when the user sign up first time, no snapshot.val()
+	// is defined. Do nothing.
+	if (snapshot.val() == null) return;
+
+	//console.log('snapshot.key: ' + snapshot.key);
+	console.log(snapshot.val());
+	//setValiseUser(snapshot.val());
+	// Update UI
+	updateUIGetCommentValue3(snapshot.val(), index);
+ 
+}
+
+
+function getCommentValue4(snapshot, index) {
+	console.log('getCommentValue4');
+	// when the user sign up first time, no snapshot.val()
+	// is defined. Do nothing.
+	if (snapshot.val() == null) return;
+
+	//console.log('snapshot.key: ' + snapshot.key);
+	console.log(snapshot.val());
+	//setValiseUser(snapshot.val());
+	// Update UI
+	updateUIGetCommentValue4(snapshot.val(), index);
+ 
+}
+
+
+
 function getToDoListChildAdded(snapshot) {
-	//console.log('getToDoListValue');
-	if (snapshot.val() == null)  return;
+	console.log('getToDoListValue');
+	if (snapshot.val() == null) { 
+		console.log("I am not working");
+        updateUIGetToDoListChildAdded([])
+		return;
+	}
 	
 	//console.log('snapshot.key: ' + snapshot.key);
 	//console.log(snapshot.val());
-	//toDoList = snapshot.val();
-	updateUIGetToDoListChildAdded();
+	toDoList = snapshot.val();
+	console.log(toDoList.list);
+	updateUIGetToDoList(toDoList.list);
 }
 
 function getToDoListChildRemoved(snapshot) {
@@ -202,6 +260,23 @@ function setComment(obj) {
 	
 	firebase.database().ref('/comment/').set(obj);
 }
+
+function setComment2(obj) {
+	
+	firebase.database().ref('/comment2/').set(obj);
+}
+
+
+function setComment3(obj) {
+	
+	firebase.database().ref('/comment3/').set(obj);
+}
+
+function setComment4(obj) {
+	
+	firebase.database().ref('/comment4/').set(obj);
+}
+
 function setDeadLine(obj) {
 
 	firebase.database().ref('/deadline/').set(obj);
@@ -210,3 +285,22 @@ function setMeeting(obj) {
 
 	firebase.database().ref('/meeting/').set(obj);
 }
+
+
+function setFBList() {
+	firebase.database().ref('/toDoList/').set(toDoList);
+}
+
+function addToDoList(item) {
+	toDoList.list.push(item);
+}
+
+
+function setToDoList(index, item) {
+	toDoList.list[index] = item;	
+}
+
+
+
+
+
